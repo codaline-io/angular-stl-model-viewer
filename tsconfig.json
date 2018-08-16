@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "inlineSourceMap": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "outDir": "./dist",
+    "declaration": true,
+    "experimentalDecorators": true,
+    "lib": ["es2016", "dom"],
+    "strict": true,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "typeRoots": [ "./src/types", "./node_modules/@types"],
+  "type": [
+    "jasmine",
+    "node",
+    "core-js"
+  ],
+  "includes": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "examples"
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  }
+}

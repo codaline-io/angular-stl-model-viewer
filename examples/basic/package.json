@@ -1,0 +1,44 @@
+{
+  "name": "angular-stl-model-viewer-example",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^7.0.1",
+    "@angular/common": "^7.0.1",
+    "@angular/compiler": "^7.0.1",
+    "@angular/core": "^7.0.1",
+    "@angular/forms": "^7.0.1",
+    "@angular/http": "^7.0.1",
+    "@angular/platform-browser": "^7.0.1",
+    "@angular/platform-browser-dynamic": "^7.0.1",
+    "@angular/router": "^7.0.1",
+    "angular-stl-model-viewer": "file:../../dist",
+    "core-js": "^2.5.7",
+    "rxjs": "^6.3.3",
+    "three": "^0.98.0",
+    "three-orbitcontrols": "^2.96.3",
+    "three-stl-loader": "^1.0.6",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.10.3",
+    "@angular/cli": "~7.0.3",
+    "@angular/compiler-cli": "^7.0.1",
+    "@angular/language-service": "^7.0.1",
+    "@types/node": "~10.12.1",
+    "@types/three": "^0.93.8",
+    "codelyzer": "~4.5.0",
+    "ts-node": "~7.0.1",
+    "tslint": "~5.11.0",
+    "typescript": "~3.1.4"
+  },
+  "engines": {
+    "node": ">= 10"
+  }
+}
