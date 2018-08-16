@@ -1,0 +1,83 @@
+{
+  "name": "angular-stl-model-viewer",
+  "license": "MIT",
+  "version": "0.1.0",
+  "author": "tevim",
+  "description": "Angular component for rendering a STL model",
+  "bugs": "https://github.com/tevim/angular-stl-model-viewer/issues",
+  "homepage": "https://github.com/tevim/angular-stl-model-viewer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tevim/angular-stl-model-viewer"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "scripts": {
+    "build": "ng-packagr -p package.json",
+    "copyDistToExample": "rm -rf ./examples/basic/node_modules/angular-stl-model-viewer/* && cp -R ./dist/. examples/basic/node_modules/angular-stl-model-viewer",
+    "lint": "tslint -p ./ --type-check",
+    "publish": "npm run build && npm publish ./dist",
+    "test": "karma start"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    }
+  },
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "main": "./bundles/index.js",
+  "module": "./src/stl-model-viewer.module.js",
+  "typings": "index.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^5.0.0 || ^6.0.0 || ^7.0.0",
+    "rxjs": "^6.2.2 || ^6.3.3",
+    "three": "^0.98.0",
+    "three-orbitcontrols": "^2.96.3",
+    "three-stl-loader": "^1.0.6"
+  },
+  "devDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/compiler": "^7.0.0",
+    "@angular/compiler-cli": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@angular/platform-browser": "^7.0.0",
+    "@angular/platform-browser-dynamic": "^7.0.0",
+    "@types/jasmine": "^2.8.11",
+    "@types/node": "^10.12.3",
+    "@types/three": "^0.93.8",
+    "ajv": "^6.5.5",
+    "codelyzer": "^4.5.0",
+    "core-js": "^2.5.7",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "jasmine-core": "^3.3.0",
+    "karma": "^3.1.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.2",
+    "karma-coverage-istanbul-reporter": "^2.0.4",
+    "karma-jasmine": "^2.0.1",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^3.0.5",
+    "loader-utils": "^1.1.0",
+    "ng-packagr": "^4.4.0",
+    "puppeteer": "^1.10.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3",
+    "source-map-loader": "^0.2.4",
+    "three": "^0.98.0",
+    "three-orbitcontrols": "^2.96.3",
+    "three-stl-loader": "^1.0.6",
+    "ts-helpers": "^1.1.2",
+    "ts-loader": "5.3.0",
+    "tsickle": "^0.33.1",
+    "tslib": "^1.9.3",
+    "tslint": "^5.11.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "3.1.6",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2",
+    "zone.js": "^0.8.26"
+  }
+}
