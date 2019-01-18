@@ -62,7 +62,7 @@
     "loader-utils": "^1.1.0",
     "ng-packagr": "^4.6.0",
     "puppeteer": "^1.10.0",
-    "reflect-metadata": "^0.1.12",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "^6.3.3",
     "source-map-loader": "^0.2.4",
     "three": "^0.98.0",
