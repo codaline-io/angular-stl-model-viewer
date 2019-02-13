@@ -163,9 +163,9 @@
   integrity sha512-GWWbvt+z9G5otRBW8rssOFgRY87J9N/qbhqfjMZ+gUuL6zoL+Hm6gP/8qQBG4jjimqdaNLCehcVapZ/Fs2WjCQ==
 
 "@types/three@^0.93.8":
-  version "0.93.19"
-  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.93.19.tgz#6ab16dd9b047e3c4ba9421b590863a86445a0dc2"
-  integrity sha512-CnIJ5o+d6VoJbKE8cwFdjYlBqSRnT+Ea+dvXJYNlEtmUxrwmYimxgF8PqMV/Mk0VwAXdJI8+hm//voWd9tmn+Q==
+  version "0.93.20"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.93.20.tgz#f298e339d52078ea4b2bf96ae814ee476a3a564e"
+  integrity sha512-k+YNaO8Ux6b2UQBIwM/fa4fdnBJpsMSxrHVGHXFsoflFUkvy/TPnvMXj396l1VjzzjqFX/vJFEsrYwpUhztD2g==
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
