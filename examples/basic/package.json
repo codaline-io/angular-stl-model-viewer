@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href examples/basic/dist/my-app",
+    "build": "ng build --prod --base-href /angular-stl-model-viewer/examples/basic/dist/my-app/",
     "lint": "ng lint"
   },
   "private": true,
