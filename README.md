@@ -1,18 +1,26 @@
-[![CircleCI][circleci-svg]][circleci]
-
 angular-stl-model-viewer
 ==
-This is a angular component to render stl-models with THREE.js.
+
+[![CircleCI][circleci-svg]][circleci]
+
+This is an angular component to render stl-models with THREE.js.
 
 Installation
 ==
 - `yarn add angular-stl-model-viewer`
+- `npm install angular-stl-model-viewer`
 - or download the zip file from [release page][releases]
 
 Usage
 ==
 - import `StlModelViewerModule` to your app module
 - use stl-model-viewer component in your html `<stl-model-viewer stlModel="example.stl"></stl-model-viewer>`
+
+
+Example
+=
+
+The working basic example can be found in our [live demo][live-demo].
 
 Configuration
 ==
@@ -62,3 +70,4 @@ angular-stl-model-viewer is Copyright © 2018 [tevim GmbH][tevim]. It is free so
 [license]: https://github.com/tevim/angular-stl-model-viewer/blob/master/LICENSE
 [releases]: https://github.com/tevim/angular-stl-model-viewer/releases
 [tevim]: https://www.tevim.com
+[live-demo]: https://tevim.github.io/angular-stl-model-viewer/examples/basic/dist/my-app/
