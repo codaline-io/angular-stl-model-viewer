@@ -2,6 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from '@angul
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing'
 
 import * as THREE from 'three'
+import * as OrbitControls from 'three-orbitcontrols'
 
 import { StlModelViewerComponent } from './stl-model-viewer.component'
 import { StlModelViewerModule } from './stl-model-viewer.module'
@@ -151,7 +152,7 @@ describe('StlModelViewerComponent', () => {
 
       const el = hostFixture.componentInstance.stlModelViewerCmpElement as HTMLCanvasElement
       expect(!!(el.querySelector('canvas'))).toBe(true)
-      
+
       expect(component.render).toHaveBeenCalled()
 
       hostFixture.detectChanges()
@@ -174,7 +175,7 @@ describe('StlModelViewerComponent', () => {
     })
 
     it('cleans up controls', () => {
-      component.controls = new THREE.OrbitControls(component.camera, component.renderer.domElement)
+      component.controls = new OrbitControls(component.camera, component.renderer.domElement)
 
       spyOn(component.controls, 'dispose').and.callThrough()
       spyOn(component.controls, 'removeEventListener').and.callThrough()

@@ -46,7 +46,6 @@ module.exports = function (config) {
   _config.reporters.push('coverage-istanbul')
 
   _config.coverageIstanbulReporter = {
-    fixWebpackSourcePaths: true,
     reports: ['text-summary']
   }
 

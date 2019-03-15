@@ -11,9 +11,9 @@ import {
 
 import * as THREE from 'three'
 
-const ORBIT_CONTROLS = require('three-orbitcontrols')
-const THREE_STLLOADER = require('three-stl-loader')
-const STLLOADER = THREE_STLLOADER(THREE)
+import * as OrbitControls from 'three-orbitcontrols'
+// tslint:disable-next-line:variable-name
+const STLLoader = require('three-stl-loader')(THREE)
 
 import { Vector3 } from 'three'
 
@@ -57,7 +57,7 @@ export class StlModelViewerComponent implements OnInit {
   @Input('material') material: THREE.Material = new THREE.MeshPhongMaterial({ color: 0xc4c4c4, shininess: 100, specular: 0x111111 })
   @Input('scene') scene: THREE.Scene = new THREE.Scene()
   @Input('renderer') renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({ antialias: true })
-  @Input('controls') controls: THREE.OrbitControls | null = null
+  @Input('controls') controls: any | null = null
   @Input('meshOptions') meshOptions: MeshOptions = {}
 
   @Output() rendered = new EventEmitter<void>()
@@ -65,7 +65,7 @@ export class StlModelViewerComponent implements OnInit {
   hasWebGL = isWebGLAvailable()
   isRendered = false
   showStlModel: boolean = true
-  stlLoader = new STLLOADER()
+  stlLoader = new STLLoader()
 
   constructor(
     private eleRef: ElementRef,
@@ -118,7 +118,7 @@ export class StlModelViewerComponent implements OnInit {
 
     // use default controls
     if (this.hasControls && !this.controls) {
-      this.controls = new ORBIT_CONTROLS(this.camera, this.renderer.domElement) as THREE.OrbitControls
+      this.controls = new OrbitControls(this.camera, this.renderer.domElement)
       this.controls.enableZoom = true
       this.controls.minDistance = 1
       this.controls.maxDistance = 7
