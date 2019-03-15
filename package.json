@@ -16,7 +16,7 @@
   "scripts": {
     "build": "ng-packagr -p package.json",
     "copyDistToExample": "rm -rf ./examples/basic/node_modules/angular-stl-model-viewer/* && cp -R ./dist/. examples/basic/node_modules/angular-stl-model-viewer",
-    "lint": "tslint -p ./ --type-check",
+    "lint": "tslint -p ./",
     "publish": "npm run build && npm publish ./dist",
     "test": "karma start"
   },
