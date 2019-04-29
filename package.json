@@ -69,7 +69,7 @@
     "three-orbitcontrols": "^2.102.1",
     "three-stl-loader": "^1.0.6",
     "ts-helpers": "^1.1.2",
-    "ts-loader": "5.3.3",
+    "ts-loader": "5.4.4",
     "tsickle": "^0.34.3",
     "tslib": "^1.9.3",
     "tslint": "^5.14.0",
