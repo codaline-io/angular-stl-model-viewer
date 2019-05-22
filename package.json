@@ -48,7 +48,7 @@
     "@types/three": "^0.93.26",
     "ajv": "^6.10.0",
     "codelyzer": "^4.5.0",
-    "core-js": "^2.6.5",
+    "core-js": "^3.1.2",
     "istanbul-instrumenter-loader": "^3.0.1",
     "jasmine-core": "^3.3.0",
     "karma": "^4.0.1",
