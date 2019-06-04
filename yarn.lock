@@ -5774,10 +5774,10 @@ three-stl-loader@^1.0.6:
   resolved "https://registry.yarnpkg.com/three-stl-loader/-/three-stl-loader-1.0.6.tgz#b66240f819300eee88928251937587c3fb4262c1"
   integrity sha512-Z5Tc41XwYkR7we7Igz9Ck0Gw931aMePpPA2piaixUBOqteztlnh5onH/op5UrTdlOjs6GnKR6DBHZ4plUEh4bA==
 
-three@^0.102.1:
-  version "0.102.1"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.102.1.tgz#fc08b6b11860cf59e8cd45b7e90e34d1d1a8cbd6"
-  integrity sha512-btHBdww/Es4vdBkB2GjTE9mpj0vy8tgtxkX7ne7uxySXV8zoGxWJv1N88BydxnCqvAfmD4ZUTqPeESO7oDgeOQ==
+three@^0.105.2:
+  version "0.105.2"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.105.2.tgz#d135f1549bdcf5a9acd904ba3dbf9198a0268984"
+  integrity sha512-L3Al37k4g3hVbgFFS251UVtIc25chhyN0/RvXzR0C+uIBToV6EKDG+MZzEXm9L2miGUVMK27W46/VkP6WUZXMg==
 
 through2@^2.0.0:
   version "2.0.5"
