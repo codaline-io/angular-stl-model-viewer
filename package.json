@@ -65,7 +65,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.4.0",
     "source-map-loader": "^0.2.4",
-    "three": "^0.102.1",
+    "three": "^0.105.2",
     "three-orbitcontrols": "^2.102.1",
     "three-stl-loader": "^1.0.6",
     "ts-helpers": "^1.1.2",
