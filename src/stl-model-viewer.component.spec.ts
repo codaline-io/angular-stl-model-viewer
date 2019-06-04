@@ -11,7 +11,9 @@ import { StlModelViewerModule } from './stl-model-viewer.module'
   template: '<stl-model-viewer stlModel="test.stl" (rendered)="isRendered = true"></stl-model-viewer>'
 })
 class TestComponent {
-  @ViewChild(StlModelViewerComponent) stlModelViewerCmp: StlModelViewerComponent | null = null
+  @ViewChild(StlModelViewerComponent, {
+    static: true
+  }) stlModelViewerCmp: StlModelViewerComponent | null = null
   isRendered = false
   stlModelViewerCmpElement: HTMLCanvasElement | null = null
 
@@ -138,7 +140,7 @@ describe('StlModelViewerComponent', () => {
     })
 
     it('calls createMesh', fakeAsync(() => {
-      const fakeMesh = new THREE.Object3D()
+      const fakeMesh = new THREE.Mesh()
       spyOn(component, 'createMesh').and.callFake(() => Promise.resolve(fakeMesh))
       spyOn(component.scene, 'add').and.callThrough()
       spyOn(component, 'render').and.callThrough()
