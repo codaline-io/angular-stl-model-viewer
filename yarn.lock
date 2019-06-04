@@ -162,10 +162,12 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.9.tgz#f80697caca7f7fb2526527a5c5a2743487f05ccc"
   integrity sha512-NJ4yuEVw5podZbINp3tEqUIImMSAEHaCXRiWCf3KC32l6hIKf0iPJEh2uZdT0fELfRYk310yLmMXqy2leZQUbg==
 
-"@types/three@^0.93.26":
-  version "0.93.30"
-  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.93.30.tgz#a1c51cb53936e45906586bdb3bfcc4e027e40960"
-  integrity sha512-PKynehMvPQ7/Jmqnz4aFTaUHTmT2VAT8qPnHSaXq8TawXjmRIvAeI+84gsU9LwzRyMZ37z81qkJJdofjfhnysA==
+"@types/three@^0.103.2":
+  version "0.103.2"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.103.2.tgz#f7d49130001c551941a0ded757def810579aafc4"
+  integrity sha512-zhtf0Qs5wLJpIn1+VWCpzSgpKayj/GSWZ6woiuz09FW59KEDeLpnBkYz6lbblVpRmGdlnG8nd0unaASshOvcXw==
+  dependencies:
+    three "*"
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -5807,7 +5809,7 @@ three-stl-loader@^1.0.6:
   resolved "https://registry.yarnpkg.com/three-stl-loader/-/three-stl-loader-1.0.6.tgz#b66240f819300eee88928251937587c3fb4262c1"
   integrity sha512-Z5Tc41XwYkR7we7Igz9Ck0Gw931aMePpPA2piaixUBOqteztlnh5onH/op5UrTdlOjs6GnKR6DBHZ4plUEh4bA==
 
-three@^0.105.2:
+three@*, three@^0.105.2:
   version "0.105.2"
   resolved "https://registry.yarnpkg.com/three/-/three-0.105.2.tgz#d135f1549bdcf5a9acd904ba3dbf9198a0268984"
   integrity sha512-L3Al37k4g3hVbgFFS251UVtIc25chhyN0/RvXzR0C+uIBToV6EKDG+MZzEXm9L2miGUVMK27W46/VkP6WUZXMg==
