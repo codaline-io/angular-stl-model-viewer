@@ -1,7 +1,7 @@
 {
   "name": "angular-stl-model-viewer",
   "license": "MIT",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "tevim",
   "description": "Angular component for rendering a STL model",
   "bugs": "https://github.com/tevim/angular-stl-model-viewer/issues",
@@ -17,7 +17,7 @@
     "build": "ng-packagr -p package.json",
     "copyDistToExample": "rm -rf ./examples/basic/node_modules/angular-stl-model-viewer/* && cp -R ./dist/. examples/basic/node_modules/angular-stl-model-viewer",
     "lint": "tslint -p ./",
-    "publish": "npm run build && npm publish ./dist",
+    "build:publish": "ng-packagr -p package.json && cd ./dist && yarn publish",
     "test": "karma start"
   },
   "ngPackage": {
