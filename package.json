@@ -32,7 +32,7 @@
   "peerDependencies": {
     "@angular/core": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0",
     "rxjs": "^6.2.2 || ^6.3.3 || ^6.5.1",
-    "three": "^0.105.2",
+    "three": "^0.106.2",
     "three-orbitcontrols": "^2.102.1",
     "three-stl-loader": "^1.0.6"
   },
@@ -64,7 +64,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.2",
     "source-map-loader": "^0.2.4",
-    "three": "^0.105.2",
+    "three": "^0.106.2",
     "three-orbitcontrols": "^2.102.1",
     "three-stl-loader": "^1.0.6",
     "ts-helpers": "^1.1.2",
