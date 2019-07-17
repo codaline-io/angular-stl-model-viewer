@@ -69,7 +69,7 @@
     "three-stl-loader": "^1.0.6",
     "ts-helpers": "^1.1.2",
     "ts-loader": "6.0.4",
-    "tsickle": "^0.35.0",
+    "tsickle": "^0.36.0",
     "tslib": "^1.9.3",
     "tslint": "^5.17.0",
     "tslint-eslint-rules": "^5.4.0",
