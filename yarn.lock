@@ -195,9 +195,9 @@
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
 "@types/jasmine@^3.3.13":
-  version "3.3.14"
-  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.3.14.tgz#593440eef2793ed6c2beddf65850f4ed3028599c"
-  integrity sha512-0mE8mLKrobGicrQqSU3GI1rE+yy0tfGWoGklhrsYVV3ZaHcQGNUs0UQ07pXIiGVHJB3fKP0qApcmApySk4wCRw==
+  version "3.3.15"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.3.15.tgz#545be0670e828ac570566c45be570bbffcbc66d8"
+  integrity sha512-MljubxUVLT9wh/0NiyRWlcxSu/0axK+UYheZ04N5yaQclQkE8JuFYMsmwltPap2LEsJrvSf5p49/1514IY+d1Q==
 
 "@types/node@*", "@types/node@^12.0.3", "@types/node@^12.6.6":
   version "12.6.8"
