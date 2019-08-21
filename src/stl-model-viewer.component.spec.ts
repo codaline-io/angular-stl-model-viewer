@@ -2,7 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from '@angul
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing'
 
 import * as THREE from 'three'
-import * as OrbitControls from 'three-orbitcontrols'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 import { StlModelViewerComponent } from './stl-model-viewer.component'
 import { StlModelViewerModule } from './stl-model-viewer.module'
