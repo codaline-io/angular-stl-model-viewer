@@ -11,9 +11,8 @@ import {
 
 import * as THREE from 'three'
 
-import * as OrbitControls from 'three-orbitcontrols'
-// tslint:disable-next-line:variable-name
-const STLLoader = require('three-stl-loader')(THREE)
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 import { Vector3 } from 'three'
 
