@@ -7,8 +7,8 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  Renderer2,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
 } from '@angular/core'
 
 import * as THREE from 'three'
@@ -47,7 +47,14 @@ function isWebGLAvailable() {
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'stl-model-viewer',
-  template: '<div></div>'
+  styles: [`
+:host {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+  `],
+  template: ''
 })
 export class StlModelViewerComponent implements OnInit, OnDestroy {
   @Input() stlModels: string[] = []
@@ -64,15 +71,17 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
   @Output() rendered = new EventEmitter<void>()
 
   hasWebGL = isWebGLAvailable()
+  meshGroup = new THREE.Object3D()
   isRendered = false
   showStlModel = true
   stlLoader = new STLLoader()
 
   constructor(
+    private cdr: ChangeDetectorRef,
     private eleRef: ElementRef,
-    private ngZone: NgZone,
-    private ngRenderer: Renderer2
+    private ngZone: NgZone
   ) {
+    this.cdr.detach()
     // default light position
     this.light.position.set(1, 1, 2)
 
@@ -100,6 +109,8 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     window.removeEventListener('resize', this.onWindowResize, false)
+
+    this.meshGroup.remove()
 
     if (this.renderer) {
       this.renderer.renderLists.dispose()
@@ -145,18 +156,20 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
       this.controls.addEventListener('change', this.render)
     }
 
-    this.setSizes()
-
     window.addEventListener('resize', this.onWindowResize, false)
 
     const meshCreations = this.stlModels.map((modelPath, index) => this.createMesh(modelPath, this.meshOptions[index]))
     const meshes: THREE.Object3D[] = await Promise.all(meshCreations)
-    meshes.map((mesh) => this.scene.add(mesh))
-    this.ngRenderer.appendChild(this.eleRef.nativeElement, this.renderer.domElement)
+
+    meshes.map((mesh) => this.meshGroup.add(mesh))
+    this.scene.add(this.meshGroup)
+    this.eleRef.nativeElement.appendChild(this.renderer.domElement)
+    this.setSizes()
     this.render()
     this.ngZone.run(() => {
       this.isRendered = true
       this.rendered.emit()
+      this.cdr.detectChanges()
     })
   }
 

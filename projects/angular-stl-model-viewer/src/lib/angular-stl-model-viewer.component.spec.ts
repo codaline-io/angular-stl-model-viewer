@@ -86,45 +86,45 @@ describe('StlModelViewerComponent', () => {
       expect(component.createMesh).not.toHaveBeenCalled()
     })
 
-    it('adds light to camera', () => {
+    it('adds light to camera', async () => {
       spyOn(component.camera, 'add')
 
-      component.ngOnInit()
+      await component.ngOnInit()
       hostFixture.detectChanges()
 
       expect(component.camera.add).toHaveBeenCalledWith(component.light)
     })
 
-    it('adds camera to scene', () => {
+    it('adds camera to scene', async () => {
       spyOn(component.scene, 'add')
 
-      component.ngOnInit()
+      await component.ngOnInit()
       hostFixture.detectChanges()
 
       expect(component.scene.add).toHaveBeenCalledWith(component.camera)
     })
 
-    it('sets window event listener', () => {
+    it('sets window event listener', async () => {
       spyOn(window, 'addEventListener')
 
-      component.ngOnInit()
+      await component.ngOnInit()
       hostFixture.detectChanges()
 
       expect(window.addEventListener).toHaveBeenCalled()
       expect(window.addEventListener).toHaveBeenCalledWith('resize', component.onWindowResize, false)
     })
 
-    it('sets initial sizes and camera aspec ratio', () => {
+    it('sets initial sizes and camera aspec ratio', async () => {
       spyOn(component, 'setSizes')
 
-      component.ngOnInit()
+      await component.ngOnInit()
       hostFixture.detectChanges()
 
       expect(component.setSizes).toHaveBeenCalled()
     })
 
-    it('adds default controls and sets control options', () => {
-      component.ngOnInit()
+    it('adds default controls and sets control options', async () => {
+      await component.ngOnInit()
       hostFixture.detectChanges()
 
       if (component.controls) {
