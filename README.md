@@ -58,4 +58,4 @@ Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using `yarn lint` and `yarn test`.
 
 
-[live-demo]: https://codaline-io.github.io/angular-stl-model-viewer/examples/basic/dist/my-app/
+[live-demo]: https://codaline-io.github.io/angular-stl-model-viewer
