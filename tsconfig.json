@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular-stl-model-viewer": [
+        "dist/angular-stl-model-viewer/angular-stl-model-viewer",
+        "dist/angular-stl-model-viewer"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
