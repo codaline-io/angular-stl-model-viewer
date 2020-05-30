@@ -1,0 +1,53 @@
+{
+  "name": "angular-stl-model-viewer",
+  "license": "MIT",
+  "version": "0.6.0",
+  "author": "Marcus Kirsch & Bengt Weiße",
+  "description": "Angular component for rendering a STL model",
+  "bugs": "https://github.com/codaline-io/angular-stl-model-viewer/issues",
+  "homepage": "https://github.com/codaline-io/angular-stl-model-viewer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codaline-io/angular-stl-model-viewer"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "three": "^0.117.0"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "keywords": [
+    "angular",
+    "stl",
+    "threejs",
+    "three",
+    "webGL",
+    "component",
+    "viewer"
+  ],
+  "main": "bundles/angular-stl-model-viewer.umd.js",
+  "module": "fesm5/angular-stl-model-viewer.js",
+  "es2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/angular-stl-model-viewer.js",
+  "es2015": "fesm2015/angular-stl-model-viewer.js",
+  "esm5": "esm5/angular-stl-model-viewer.js",
+  "esm2015": "esm2015/angular-stl-model-viewer.js",
+  "fesm5": "fesm5/angular-stl-model-viewer.js",
+  "fesm2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/angular-stl-model-viewer.js",
+  "fesm2015": "fesm2015/angular-stl-model-viewer.js",
+  "typings": "angular-stl-model-viewer.d.ts",
+  "metadata": "angular-stl-model-viewer.metadata.json",
+  "sideEffects": false,
+  "__processed_by_ivy_ngcc__": {
+    "es2015": "9.1.9",
+    "fesm2015": "9.1.9",
+    "typings": "9.1.9"
+  },
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
+  }
+}

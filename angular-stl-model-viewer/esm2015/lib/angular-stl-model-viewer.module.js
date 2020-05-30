@@ -1,0 +1,14 @@
+import { __decorate } from "tslib";
+import { NgModule } from '@angular/core';
+import { StlModelViewerComponent } from './angular-stl-model-viewer.component';
+let StlModelViewerModule = class StlModelViewerModule {
+};
+StlModelViewerModule = __decorate([
+    NgModule({
+        declarations: [StlModelViewerComponent],
+        exports: [StlModelViewerComponent],
+        imports: []
+    })
+], StlModelViewerModule);
+export { StlModelViewerModule };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYW5ndWxhci1zdGwtbW9kZWwtdmlld2VyLm1vZHVsZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2FuZ3VsYXItc3RsLW1vZGVsLXZpZXdlci8iLCJzb3VyY2VzIjpbImxpYi9hbmd1bGFyLXN0bC1tb2RlbC12aWV3ZXIubW9kdWxlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxPQUFPLEVBQUUsUUFBUSxFQUFFLE1BQU0sZUFBZSxDQUFBO0FBQ3hDLE9BQU8sRUFBRSx1QkFBdUIsRUFBRSxNQUFNLHNDQUFzQyxDQUFBO0FBUTlFLElBQWEsb0JBQW9CLEdBQWpDLE1BQWEsb0JBQW9CO0NBQUksQ0FBQTtBQUF4QixvQkFBb0I7SUFOaEMsUUFBUSxDQUFDO1FBQ1IsWUFBWSxFQUFFLENBQUMsdUJBQXVCLENBQUM7UUFDdkMsT0FBTyxFQUFFLENBQUMsdUJBQXVCLENBQUM7UUFDbEMsT0FBTyxFQUFFLEVBQ1I7S0FDRixDQUFDO0dBQ1csb0JBQW9CLENBQUk7U0FBeEIsb0JBQW9CIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmdNb2R1bGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJ1xuaW1wb3J0IHsgU3RsTW9kZWxWaWV3ZXJDb21wb25lbnQgfSBmcm9tICcuL2FuZ3VsYXItc3RsLW1vZGVsLXZpZXdlci5jb21wb25lbnQnXG5cbkBOZ01vZHVsZSh7XG4gIGRlY2xhcmF0aW9uczogW1N0bE1vZGVsVmlld2VyQ29tcG9uZW50XSxcbiAgZXhwb3J0czogW1N0bE1vZGVsVmlld2VyQ29tcG9uZW50XSxcbiAgaW1wb3J0czogW1xuICBdXG59KVxuZXhwb3J0IGNsYXNzIFN0bE1vZGVsVmlld2VyTW9kdWxlIHsgfVxuIl19
