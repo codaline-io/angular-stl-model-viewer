@@ -1,0 +1,33 @@
+{
+  "name": "angular-stl-model-viewer",
+  "license": "MIT",
+  "version": "0.6.0",
+  "author": "Marcus Kirsch & Bengt Weiße",
+  "description": "Angular component for rendering a STL model",
+  "bugs": "https://github.com/codaline-io/angular-stl-model-viewer/issues",
+  "homepage": "https://github.com/codaline-io/angular-stl-model-viewer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codaline-io/angular-stl-model-viewer"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "three": "^0.117.0"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "keywords": [
+    "angular",
+    "stl",
+    "threejs",
+    "three",
+    "webGL",
+    "component",
+    "viewer"
+  ]
+}

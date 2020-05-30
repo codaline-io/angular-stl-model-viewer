@@ -1,35 +1,29 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": false,
-    "inlineSourceMap": true,
-    "emitDecoratorMetadata": true,
-    "noUnusedLocals": true,
-    "outDir": "./dist",
-    "declaration": true,
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "lib": ["es2016", "dom"],
-    "strict": true,
-    "suppressImplicitAnyIndexErrors": true
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "angular-stl-model-viewer": [
+        "dist/angular-stl-model-viewer/angular-stl-model-viewer",
+        "dist/angular-stl-model-viewer"
+      ]
+    }
   },
-  "typeRoots": ["./node_modules/@types"],
-  "type": [
-    "jasmine",
-    "node",
-    "core-js"
-  ],
-  "includes": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "examples"
-  ],
   "angularCompilerOptions": {
-    "strictMetadataEmit": true,
-    "skipTemplateCodegen": true
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }
