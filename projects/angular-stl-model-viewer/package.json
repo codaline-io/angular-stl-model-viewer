@@ -14,12 +14,12 @@
     "node": ">= 10"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "three": "^0.117.0"
+    "@angular/common": "^10.0.0",
+    "@angular/core": "^10.0.0",
+    "three": "^0.120.0"
   },
   "dependencies": {
-    "tslib": "^1.10.0"
+    "tslib": "^2.0.1"
   },
   "keywords": [
     "angular",
