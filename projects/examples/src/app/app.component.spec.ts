@@ -1,10 +1,10 @@
-import { TestBed, async } from '@angular/core/testing'
+import { TestBed, waitForAsync } from '@angular/core/testing'
 import { AppComponent } from './app.component'
 
 import { StlModelViewerModule } from '../../../angular-stl-model-viewer/src/public-api'
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
@@ -19,7 +19,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy()
   })
 
-  it("should have as title 'Examples'", () => {
+  it('should have as title "Examples"', () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.componentInstance
     expect(app.title).toEqual('Examples')

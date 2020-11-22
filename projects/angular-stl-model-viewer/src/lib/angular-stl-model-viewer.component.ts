@@ -35,7 +35,7 @@ const defaultMeshOptions = {
   scale: new THREE.Vector3(0.03, 0.03, 0.03)
 }
 
-function isWebGLAvailable() {
+const isWebGLAvailable = () => {
   try {
     const canvas = document.createElement('canvas')
     return !! (window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext( 'experimental-webgl')))
@@ -49,9 +49,9 @@ function isWebGLAvailable() {
   selector: 'stl-model-viewer',
   styles: [`
 :host {
-  width: 100%;
-  height: 100%;
-  display: block;
+  width: 100%
+  height: 100%
+  display: block
 }
   `],
   template: ''
@@ -138,39 +138,7 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
       this.scene.children.forEach((child) => {
         this.scene.remove(child)
       })
-      this.scene.dispose()
     }
-  }
-
-  private async init() {
-    this.camera.add(this.light)
-    this.scene.add(this.camera)
-
-    // use default controls
-    if (this.hasControls && !this.controls) {
-      this.controls = new OrbitControls(this.camera, this.renderer.domElement)
-      this.controls.enableZoom = true
-      this.controls.minDistance = 1
-      this.controls.maxDistance = 7
-
-      this.controls.addEventListener('change', this.render)
-    }
-
-    window.addEventListener('resize', this.onWindowResize, false)
-
-    const meshCreations = this.stlModels.map((modelPath, index) => this.createMesh(modelPath, this.meshOptions[index]))
-    const meshes: THREE.Object3D[] = await Promise.all(meshCreations)
-
-    meshes.map((mesh) => this.meshGroup.add(mesh))
-    this.scene.add(this.meshGroup)
-    this.eleRef.nativeElement.appendChild(this.renderer.domElement)
-    this.setSizes()
-    this.render()
-    this.ngZone.run(() => {
-      this.isRendered = true
-      this.rendered.emit()
-      this.cdr.detectChanges()
-    })
   }
 
   async createMesh(path: string, meshOptions: MeshOptions = {}): Promise<THREE.Mesh> {
@@ -210,5 +178,36 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
   onWindowResize = () => {
     this.setSizes()
     this.render()
+  }
+
+  private async init() {
+    this.camera.add(this.light)
+    this.scene.add(this.camera)
+
+    // use default controls
+    if (this.hasControls && !this.controls) {
+      this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+      this.controls.enableZoom = true
+      this.controls.minDistance = 1
+      this.controls.maxDistance = 7
+
+      this.controls.addEventListener('change', this.render)
+    }
+
+    window.addEventListener('resize', this.onWindowResize, false)
+
+    const meshCreations = this.stlModels.map((modelPath, index) => this.createMesh(modelPath, this.meshOptions[index]))
+    const meshes: THREE.Object3D[] = await Promise.all(meshCreations)
+
+    meshes.map((mesh) => this.meshGroup.add(mesh))
+    this.scene.add(this.meshGroup)
+    this.eleRef.nativeElement.appendChild(this.renderer.domElement)
+    this.setSizes()
+    this.render()
+    this.ngZone.run(() => {
+      this.isRendered = true
+      this.rendered.emit()
+      this.cdr.detectChanges()
+    })
   }
 }
