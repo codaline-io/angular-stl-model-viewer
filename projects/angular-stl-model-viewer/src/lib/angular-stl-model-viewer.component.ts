@@ -201,7 +201,7 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     }
 
     window.addEventListener('resize', this.onWindowResize, false)
-    let meshCreations: Promise<THREE.Mesh>[] = null;
+    let meshCreations: Promise<THREE.Mesh>[] = [];
     if (this.stlModels.length > 0) {
       meshCreations = this.stlModels.map((modelPath, index) => this.createMesh(modelPath, this.meshOptions[index]));
     }
