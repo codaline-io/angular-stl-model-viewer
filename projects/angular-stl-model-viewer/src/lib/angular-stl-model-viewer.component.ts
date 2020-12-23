@@ -143,11 +143,11 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
   }
 
   async createMesh(path: string, meshOptions: MeshOptions = {}, parse: boolean = false): Promise<THREE.Mesh> {
-    let geometry: THREE.BufferGeometry = null;
+    let geometry: THREE.BufferGeometry = null
     if (parse) {
-      geometry = this.stlLoader.parse(path);
+      geometry = this.stlLoader.parse(path)
     } else {
-      geometry = await this.stlLoader.loadAsync(path);
+      geometry = await this.stlLoader.loadAsync(path)
     }
     const mesh = new THREE.Mesh(geometry, this.material)
 
@@ -201,12 +201,12 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     }
 
     window.addEventListener('resize', this.onWindowResize, false)
-    let meshCreations: Promise<THREE.Mesh>[] = [];
+    let meshCreations: Promise<THREE.Mesh>[] = []
     if (this.stlModels.length > 0) {
-      meshCreations = this.stlModels.map((modelPath, index) => this.createMesh(modelPath, this.meshOptions[index]));
+      meshCreations = this.stlModels.map((modelPath, index) => this.createMesh(modelPath, this.meshOptions[index]))
     }
     else {
-      meshCreations = this.stlModelFiles.map((modelFile, index) => this.createMesh(modelFile, this.meshOptions[index], true));
+      meshCreations = this.stlModelFiles.map((modelFile, index) => this.createMesh(modelFile, this.meshOptions[index], true))
     }
     const meshes: THREE.Object3D[] = await Promise.all(meshCreations)
 
