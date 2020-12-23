@@ -12,6 +12,7 @@ Usage
 ==
 - import `StlModelViewerModule` to your app module
 - use stl-model-viewer component in your html `<stl-model-viewer [stlModels]="['example.stl']"></stl-model-viewer>`
+- alternatively use `[stlModelFiles]="['stlFileContent']"`
 
 
 Example
@@ -24,7 +25,8 @@ Configuration
 ## Input Properties
 | Attr         | Type                   | Default                                                                          | Details                                            |
 | ------------ | ---------------------- | -------------------------------------------------------------------------------- |--------------------------------------------------- |
-| stlModels     | string[]                 | -                                                                                | List of stl model paths                                  |
+| stlModels     | string[]                 | empty array                                                                                | List of stl model paths
+| stlModelFiles     | string[]                 | empty array                                                                                | List of stl model files/content
 | hasControls  | boolean                | true                                                                             | If true, the user can interact with the stl-models  |
 | camera       | THREE.Camera           | THREE.PerspectiveCamera( 35, WindowInnerWidth / WindowInnerHeight, 1, 15 )       | The projection mode used for rendering the scene   |
 | cameraTarget | THREE.Vector3          | THREE.Vector3( 0, 0, 0 )                                                         | The orientation point for the camera               |
