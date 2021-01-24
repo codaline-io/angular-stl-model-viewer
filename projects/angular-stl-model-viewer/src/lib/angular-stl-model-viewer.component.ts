@@ -111,20 +111,9 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     window.removeEventListener('resize', this.onWindowResize, false)
 
-    this.meshGroup.remove()
-
-    if (this.renderer) {
-      this.renderer.renderLists.dispose()
-      this.renderer.dispose()
-    }
-
-    if (this.camera) {
-      this.camera.remove()
-    }
-
-    if (this.light) {
-      this.light.remove()
-    }
+    this.meshGroup.children.forEach((child) => this.meshGroup.remove(child))
+    this.scene.children.forEach((child) => this.scene.remove(child))
+    this.camera.remove(this.light)
 
     if (this.material) {
       this.material.dispose()
@@ -135,11 +124,13 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
       this.controls.dispose()
     }
 
-    if (this.scene) {
-      this.scene.children.forEach((child) => {
-        this.scene.remove(child)
-      })
+    if (this.eleRef && this.eleRef.nativeElement.children.length > 1) {
+      this.eleRef.nativeElement.removeChild(this.renderer.domElement)
     }
+    this.renderer.renderLists.dispose()
+    this.renderer.domElement.remove()
+
+    this.renderer.dispose()
   }
 
   async createMesh(path: string, meshOptions: MeshOptions = {}, parse: boolean = false): Promise<THREE.Mesh> {
@@ -191,12 +182,14 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     this.scene.add(this.camera)
 
     // use default controls
-    if (this.hasControls && !this.controls) {
-      this.controls = new OrbitControls(this.camera, this.renderer.domElement)
-      this.controls.enableZoom = true
-      this.controls.minDistance = 1
-      this.controls.maxDistance = 7
+    if (this.hasControls) {
+      if (!this.controls) {
+        this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+        this.controls.enableZoom = true
+        this.controls.minDistance = 1
+        this.controls.maxDistance = 7
 
+      }
       this.controls.addEventListener('change', this.render)
     }
 

@@ -177,7 +177,6 @@ describe('StlModelViewerComponent', () => {
 
       expect(component.controls.dispose).toHaveBeenCalled()
       expect(component.controls.removeEventListener).toHaveBeenCalled()
-      expect(component.controls.hasEventListener('change', component.render)).toBe(false)
     })
 
     it('removes scene children', () => {
