@@ -29,6 +29,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent)
     fixture.detectChanges()
     const compiled = fixture.nativeElement
-    expect(compiled.querySelectorAll('stl-model-viewer').length).toBe(2)
+    expect(compiled.querySelectorAll('stl-model-viewer').length).toBe(3)
   })
 })
