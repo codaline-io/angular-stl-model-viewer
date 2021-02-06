@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 <div>
-  <stl-model-viewer [meshOptions]="[{position: {x: 0, y: 0, z: 0}}]" [stlModels]="['./assets/peter.stl']"></stl-model-viewer>
-  <stl-model-viewer [meshOptions]="[{position: {x: 0, y: 0, z: 0}}]" [stlModels]="['./assets/strap.stl']"></stl-model-viewer>
+  <stl-model-viewer [centered]="false" [stlModels]="['./assets/peter.stl']"></stl-model-viewer>
+  <stl-model-viewer [stlModels]="['./assets/strap.stl']"></stl-model-viewer>
 
   <h3>Custom controls, light, scene, camera, renderer</h3>
   <stl-model-viewer [light]="light" [scene]="scene" [camera]="camera" [renderer]="renderer" [controls]="controls" [meshOptions]="[{position: {x: 0, y: 0, z: 0}}]" [stlModels]="['./assets/strap.stl']"></stl-model-viewer>

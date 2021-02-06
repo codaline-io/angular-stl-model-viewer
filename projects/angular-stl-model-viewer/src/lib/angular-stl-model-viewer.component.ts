@@ -38,7 +38,10 @@ const defaultMeshOptions = {
 const isWebGLAvailable = () => {
   try {
     const canvas = document.createElement('canvas')
-    return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')))
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    )
   } catch (e) {
     return false
   }
@@ -47,27 +50,41 @@ const isWebGLAvailable = () => {
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'stl-model-viewer',
-  styles: [`
+  styles: [
+    `
 :host {
   width: 100%
   height: 100%
   display: block
 }
-  `],
+  `
+  ],
   template: ''
 })
 export class StlModelViewerComponent implements OnInit, OnDestroy {
   @Input() stlModels: string[] = []
   @Input() stlModelFiles: string[] = []
   @Input() hasControls = true
-  @Input() camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 15)
+  @Input() camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
+    35,
+    window.innerWidth / window.innerHeight,
+    1,
+    15
+  )
   @Input() cameraTarget: THREE.Vector3 = new THREE.Vector3(0, 0, 0)
   @Input() light: THREE.Light = new THREE.PointLight(0xffffff)
-  @Input() material: THREE.Material = new THREE.MeshPhongMaterial({ color: 0xc4c4c4, shininess: 100, specular: 0x111111 })
+  @Input() material: THREE.Material = new THREE.MeshPhongMaterial({
+    color: 0xc4c4c4,
+    shininess: 100,
+    specular: 0x111111
+  })
   @Input() scene: THREE.Scene = new THREE.Scene()
-  @Input() renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({ antialias: true })
+  @Input() renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({
+    antialias: true
+  })
   @Input() controls: any | null = null
   @Input() meshOptions: MeshOptions[] = []
+  @Input() centered = true
 
   @Output() rendered = new EventEmitter<void>()
 
@@ -76,6 +93,7 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
   isRendered = false
   showStlModel = true
   stlLoader = new STLLoader()
+  middle = new THREE.Vector3()
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -99,7 +117,9 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (!this.hasWebGL) {
-      console.error('stl-model-viewer: Seems like your system does not support webgl.')
+      console.error(
+        'stl-model-viewer: Seems like your system does not support webgl.'
+      )
       return
     }
 
@@ -133,7 +153,11 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     this.renderer.dispose()
   }
 
-  async createMesh(path: string, meshOptions: MeshOptions = {}, parse: boolean = false): Promise<THREE.Mesh> {
+  async createMesh(
+    path: string,
+    meshOptions: MeshOptions = {},
+    parse: boolean = false
+  ): Promise<THREE.Mesh> {
     let geometry: THREE.BufferGeometry = null
     if (parse) {
       geometry = this.stlLoader.parse(path)
@@ -141,6 +165,18 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
       geometry = await this.stlLoader.loadAsync(path)
     }
     const mesh = new THREE.Mesh(geometry, this.material)
+
+    if (this.centered) {
+      geometry.computeBoundingBox()
+      geometry.boundingBox.getCenter(this.middle)
+      mesh.geometry.applyMatrix4(
+        new THREE.Matrix4().makeTranslation(
+          -this.middle.x,
+          -this.middle.y,
+          -this.middle.z
+        )
+      )
+    }
 
     const vectorOptions = ['position', 'scale', 'up']
     const options = Object.assign({}, defaultMeshOptions, meshOptions)
@@ -184,11 +220,13 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     // use default controls
     if (this.hasControls) {
       if (!this.controls) {
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+        this.controls = new OrbitControls(
+          this.camera,
+          this.renderer.domElement
+        )
         this.controls.enableZoom = true
         this.controls.minDistance = 1
         this.controls.maxDistance = 7
-
       }
       this.controls.addEventListener('change', this.render)
     }
@@ -196,14 +234,18 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     window.addEventListener('resize', this.onWindowResize, false)
     let meshCreations: Promise<THREE.Mesh>[] = []
     if (this.stlModels.length > 0) {
-      meshCreations = this.stlModels.map((modelPath, index) => this.createMesh(modelPath, this.meshOptions[index]))
-    }
-    else {
-      meshCreations = this.stlModelFiles.map((modelFile, index) => this.createMesh(modelFile, this.meshOptions[index], true))
+      meshCreations = this.stlModels.map((modelPath, index) =>
+        this.createMesh(modelPath, this.meshOptions[index])
+      )
+    } else {
+      meshCreations = this.stlModelFiles.map((modelFile, index) =>
+        this.createMesh(modelFile, this.meshOptions[index], true)
+      )
     }
     const meshes: THREE.Object3D[] = await Promise.all(meshCreations)
 
     meshes.map((mesh) => this.meshGroup.add(mesh))
+
     this.scene.add(this.meshGroup)
     this.eleRef.nativeElement.appendChild(this.renderer.domElement)
     this.setSizes()
