@@ -35,7 +35,9 @@ Configuration
 | scene        | THREE.Scene            | THREE.Scene()                                                                    | Scenes allow you to set up what and where is to be rendered by                                                                                                                               three.js. This is where you place objects, lights and cameras |
 | renderer     | THREE.WebGLRenderer    | THREE.WebGLRenderer({ antialias: true })                                         | Displays your beautifully crafted scenes using WebGL |
 | controls     | THREE.OrbitControls    | THREE.OrbitControls                                                              | Allow the camera to orbit around a target          |
-| meshOptions  | MeshOptions[]            | []                                                                               | customize mesh options per stl-model                                                  |
+| meshOptions  | MeshOptions[]            | []                                                                               | customize mesh options per stl-model                                                  
+| centered     | boolean                 | true                                                                               | Flag if models should be centered
+
 
 ## Output Events
 | Attr       | Details                                  |
