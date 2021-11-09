@@ -1,6 +1,13 @@
 {
   "name": "angular-stl-model-viewer",
   "version": "0.0.0",
+  "license": "MIT",
+  "bugs": "https://github.com/codaline-io/angular-stl-model-viewer/issues",
+  "homepage": "https://github.com/codaline-io/angular-stl-model-viewer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codaline-io/angular-stl-model-viewer"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -21,7 +28,7 @@
     "@angular/platform-browser": "^13.0.0",
     "@angular/platform-browser-dynamic": "^13.0.0",
     "@angular/router": "^13.0.0",
-    "rxjs": "~6.6.7",
+    "rxjs": "^7.4.0",
     "three": "^0.126.1",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -38,7 +45,7 @@
     "@angular-eslint/template-parser": "^12.6.1",
     "@angular/cli": "^13.0.1",
     "@angular/compiler-cli": "^13.0.0",
-    "@angular/localize": "^13.0.1",
+    "@angular/localize": "^13.0.0",
     "@angular-devkit/schematics": "^13.0.1",
     "@types/jasmine": "^3.7.6",
     "@types/jasminewd2": "^2.0.9",
@@ -52,7 +59,7 @@
     "gh-pages": "^3.2.3",
     "jasmine-core": "^3.10.1",
     "jasmine-spec-reporter": "^6.0.0",
-    "karma": "^5.2.3",
+    "karma": "^6.3.8",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.3",
     "karma-jasmine": "^4.0.1",
@@ -60,7 +67,7 @@
     "ng-packagr": "^13.0.3",
     "protractor": "^7.0.0",
     "puppeteer": "^9.1.1",
-    "ts-node": "^9.1.1",
+    "ts-node": "^10.0.0",
     "typescript": "~4.4.4"
   }
 }
