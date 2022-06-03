@@ -56,6 +56,7 @@
             "polyfills": "projects/examples/src/polyfills.ts",
             "tsConfig": "projects/examples/tsconfig.app.json",
             "aot": true,
+            "baseHref" : "angular-stl-model-viewer",
             "assets": [
               "projects/examples/src/favicon.ico",
               "projects/examples/src/assets"
