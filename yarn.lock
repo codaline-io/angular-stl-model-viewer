@@ -3448,17 +3448,7 @@
   "resolved" "https://registry.npmjs.org/camelcase/-/camelcase-5.3.1.tgz"
   "version" "5.3.1"
 
-"caniuse-lite@^1.0.30001219", "caniuse-lite@^1.0.30001280", "caniuse-lite@^1.0.30001332", "caniuse-lite@^1.0.30001370":
-  "integrity" "sha512-sS4CaUM+/+vqQUlCvCJ2WtDlV81aWtHhqeEVkLokVJJa3ViN4zDxAGfq9R8i1m90uGHxo99cy10Od+lvn3hf0g=="
-  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001390.tgz"
-  "version" "1.0.30001390"
-
-"caniuse-lite@^1.0.30001400":
-  "integrity" "sha512-aOBHrLmTQw//WFa2rcF1If9fa3ypkC1wzqqiKHgfdrXTWcU8C4gKVZT77eQAPWN1APys3+uQ0Df07rKauXGEYA=="
-  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001434.tgz"
-  "version" "1.0.30001434"
-
-"caniuse-lite@^1.0.30001426":
+"caniuse-lite@^1.0.30001219", "caniuse-lite@^1.0.30001280", "caniuse-lite@^1.0.30001332", "caniuse-lite@^1.0.30001370", "caniuse-lite@^1.0.30001400", "caniuse-lite@^1.0.30001426":
   "integrity" "sha512-aOBHrLmTQw//WFa2rcF1If9fa3ypkC1wzqqiKHgfdrXTWcU8C4gKVZT77eQAPWN1APys3+uQ0Df07rKauXGEYA=="
   "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001434.tgz"
   "version" "1.0.30001434"
