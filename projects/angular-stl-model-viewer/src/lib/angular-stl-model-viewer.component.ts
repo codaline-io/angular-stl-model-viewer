@@ -156,7 +156,7 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
   async createMesh(
     path: string,
     meshOptions: MeshOptions = {},
-    parse: boolean = false
+    parse = false
   ): Promise<THREE.Mesh> {
     let geometry: THREE.BufferGeometry = null
     if (parse) {
