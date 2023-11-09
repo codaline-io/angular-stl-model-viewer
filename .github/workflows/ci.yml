@@ -13,21 +13,21 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: install libgbm1
         run: sudo apt-get install -y libgbm1
 
       - name: Intall deps
         run: |
-          yarn install
+          npm i
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
 
       - name: Test
-        run: yarn test --watch=false
+        run: npm run test --watch=false
 
       - name: Build
-        run: yarn build:prod
+        run: npm run build:prod
 
