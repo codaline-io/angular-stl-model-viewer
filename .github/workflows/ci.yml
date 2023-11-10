@@ -3,31 +3,28 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          node-version-file: 'package.json'
+          cache: 'npm'
 
       - name: install libgbm1
         run: sudo apt-get install -y libgbm1
 
       - name: Intall deps
         run: |
-          yarn install
+          npm i
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
 
       - name: Test
-        run: yarn test --watch=false
+        run: npm run test -- --watch=false
 
       - name: Build
-        run: yarn build:prod
+        run: npm run build:prod
 

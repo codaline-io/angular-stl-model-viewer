@@ -2,6 +2,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing'
 import { AppComponent } from './app.component'
 
 import { StlModelViewerModule } from '../../../angular-stl-model-viewer/src/public-api'
+import { BrowserModule } from '@angular/platform-browser'
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
@@ -9,7 +10,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      imports: [ StlModelViewerModule ]
+      imports: [ BrowserModule, StlModelViewerModule ]
     }).compileComponents()
   }))
 

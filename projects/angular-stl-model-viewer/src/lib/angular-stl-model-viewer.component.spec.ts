@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ViewChild, ElementRef } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
@@ -6,6 +7,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 import { StlModelViewerComponent } from './angular-stl-model-viewer.component'
 import { StlModelViewerModule } from './angular-stl-model-viewer.module'
+import { BrowserModule } from '@angular/platform-browser'
 
 @Component({
   template: '<stl-model-viewer [stlModels]="models" (rendered)="isRendered = true"></stl-model-viewer>'
@@ -33,7 +35,8 @@ describe('StlModelViewerComponent', () => {
     TestBed.configureTestingModule({
       declarations: [TestComponent],
       imports: [
-        StlModelViewerModule
+        StlModelViewerModule,
+        BrowserModule
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents()

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Component,
   ElementRef,
@@ -74,9 +75,9 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
   @Input() cameraTarget: THREE.Vector3 = new THREE.Vector3(0, 0, 0)
   @Input() light: THREE.Light = new THREE.PointLight(0xffffff)
   @Input() material: THREE.Material = new THREE.MeshPhongMaterial({
-    color: 0xc4c4c4,
-    shininess: 100,
-    specular: 0x111111
+    color: 0x999999,
+    shininess: 400,
+    specular: 0x222222
   })
   @Input() scene: THREE.Scene = new THREE.Scene()
   @Input() renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({
@@ -164,6 +165,7 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     } else {
       geometry = await this.stlLoader.loadAsync(path)
     }
+    this.material.shininess = 100
     const mesh = new THREE.Mesh(geometry, this.material)
 
     if (this.centered) {
