@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/codaline-io/angular-stl-model-viewer"
   },
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -27,7 +30,7 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "rxjs": "^7.8.1",
-    "three": "0.152.2",
+    "three": "0.154.0",
     "tslib": "^2.6.2",
     "zone.js": "~0.14.0"
   },
