@@ -14,8 +14,8 @@ import {
 
 import * as THREE from 'three'
 
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 import { Vector3 } from 'three'
 
