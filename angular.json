@@ -48,12 +48,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/examples",
             "index": "projects/examples/src/index.html",
-            "main": "projects/examples/src/main.ts",
-            "polyfills": "projects/examples/src/polyfills.ts",
+            "browser": "projects/examples/src/main.ts",
+            "polyfills": ["projects/examples/src/polyfills.ts"],
             "tsConfig": "projects/examples/tsconfig.app.json",
             "aot": true,
             "baseHref" : "angular-stl-model-viewer",
@@ -79,8 +79,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",

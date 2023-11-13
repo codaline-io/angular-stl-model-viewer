@@ -49,6 +49,7 @@ const isWebGLAvailable = () => {
 }
 
 @Component({
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'stl-model-viewer',
   styles: [
