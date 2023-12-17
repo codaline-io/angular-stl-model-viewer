@@ -15,7 +15,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --project angular-stl-model-viewer --configuration production && cp ./README.md ./dist/angular-stl-model-viewer",
+    "build:prod": "ng build --project angular-stl-model-viewer --configuration production && cp ./README.md ./dist/angular-stl-model-viewer  && cp ./LICENSE ./dist/angular-stl-model-viewer",
     "build:deploy": "ng build --configuration production --project examples && gh-pages -d ./dist/examples/browser",
     "test": "ng test --project angular-stl-model-viewer",
     "lint": "ng lint"
