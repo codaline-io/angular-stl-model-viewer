@@ -15,7 +15,7 @@ export class AppComponent {
   camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 15)
   controls = new OrbitControls(this.camera, this.renderer.domElement)
   scene = new THREE.Scene()
-  light = new THREE.PointLight(0xffffff)
+  light = new THREE.PointLight(0xffffff, 80)
 
   constructor() {
     this.renderer.setPixelRatio(window.devicePixelRatio)

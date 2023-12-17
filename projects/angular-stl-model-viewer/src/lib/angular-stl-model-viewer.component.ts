@@ -74,7 +74,7 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     15
   )
   @Input() cameraTarget: THREE.Vector3 = new THREE.Vector3(0, 0, 0)
-  @Input() light: THREE.Light = new THREE.PointLight(0xffffff)
+  @Input() light: THREE.Light = new THREE.PointLight(0xffffff, 80)
   @Input() material: THREE.Material = new THREE.MeshPhongMaterial({
     color: 0x999999,
     shininess: 400,
