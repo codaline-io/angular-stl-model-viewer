@@ -1,7 +1,7 @@
 {
   "name": "angular-stl-model-viewer",
   "license": "MIT",
-  "version": "10.0.1",
+  "version": "10.0.2",
   "author": "Marcus Kirsch & Bengt Weiße",
   "description": "Angular component for rendering a STL model",
   "bugs": "https://github.com/codaline-io/angular-stl-model-viewer/issues",
@@ -21,7 +21,7 @@
     "zone.js": "~0.14.0"
   },
   "dependencies": {
-    "tslib": "^^2.6.2"
+    "tslib": "^2.6.2"
   },
   "keywords": [
     "angular",
