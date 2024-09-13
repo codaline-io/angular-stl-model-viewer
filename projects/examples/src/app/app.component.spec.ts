@@ -10,7 +10,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      imports: [ BrowserModule, StlModelViewerModule ]
+      imports: [BrowserModule, StlModelViewerModule]
     }).compileComponents()
   }))
 

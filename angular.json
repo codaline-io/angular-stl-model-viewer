@@ -28,15 +28,6 @@
             "tsConfig": "projects/angular-stl-model-viewer/tsconfig.spec.json",
             "karmaConfig": "projects/angular-stl-model-viewer/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/angular-stl-model-viewer/**/*.ts",
-              "projects/angular-stl-model-viewer/**/*.html"
-            ]
-          }
         }
       }
     },
@@ -126,27 +117,6 @@
               "projects/examples/src/styles.css"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/examples/**/*.ts",
-              "projects/examples/**/*.html"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/examples/e2e/protractor.conf.js",
-            "devServerTarget": "examples:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "examples:serve:production"
-            }
           }
         }
       }

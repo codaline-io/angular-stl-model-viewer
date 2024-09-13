@@ -16,6 +16,7 @@ class TestComponent implements OnInit {
   @ViewChild(StlModelViewerComponent, {
     static: true
   }) stlModelViewerCmp: StlModelViewerComponent | null = null
+
   isRendered = false
   stlModelViewerCmpElement: HTMLCanvasElement | null = null
   models = ['test.stl']
@@ -31,7 +32,6 @@ describe('StlModelViewerComponent', () => {
   let component: StlModelViewerComponent
 
   beforeEach(() => {
-
     TestBed.configureTestingModule({
       declarations: [TestComponent],
       imports: [
@@ -135,12 +135,13 @@ describe('StlModelViewerComponent', () => {
         expect(component.controls.minDistance).toBe(1)
         expect(component.controls.maxDistance).toBe(7)
         expect(component.controls.hasEventListener('change', component.render)).toBeTruthy()
-      } else {
+      }
+      else {
         expect(component.controls).not.toBeNull()
       }
     })
 
-    it('calls createMesh', (async () => {
+    it('calls createMesh', async () => {
       const fakeMesh = new THREE.Mesh()
       spyOn(component, 'createMesh').and.callFake(() => Promise.resolve(fakeMesh))
       spyOn(component.scene, 'add').and.callThrough()
@@ -155,7 +156,7 @@ describe('StlModelViewerComponent', () => {
       expect(component.render).toHaveBeenCalled()
       expect(component.isRendered).toBe(true)
       expect(hostFixture.componentInstance.isRendered).toBe(true)
-    }))
+    })
   })
 
   describe('#ngOnDestroy', () => {

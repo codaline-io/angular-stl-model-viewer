@@ -25,7 +25,7 @@ export interface MeshOptions {
   receiveShadow?: boolean
   scale?: THREE.Vector3
   up?: THREE.Vector3
-  userData?: { [key: string]: any }
+  userData?: Record<string, any>
   visible?: boolean
 }
 
@@ -40,10 +40,11 @@ const isWebGLAvailable = () => {
   try {
     const canvas = document.createElement('canvas')
     return !!(
-      window.WebGLRenderingContext &&
-      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+      window.WebGLRenderingContext
+      && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
     )
-  } catch (e) {
+  }
+  catch {
     return false
   }
 }
@@ -73,6 +74,7 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     1,
     15
   )
+
   @Input() cameraTarget: THREE.Vector3 = new THREE.Vector3(0, 0, 0)
   @Input() light: THREE.Light = new THREE.PointLight(0xffffff, 80)
   @Input() material: THREE.Material = new THREE.MeshPhongMaterial({
@@ -80,10 +82,12 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     shininess: 400,
     specular: 0x222222
   })
+
   @Input() scene: THREE.Scene = new THREE.Scene()
   @Input() renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({
     antialias: true
   })
+
   @Input() controls: any | null = null
   @Input() meshOptions: MeshOptions[] = []
   @Input() centered = true
@@ -133,8 +137,8 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     window.removeEventListener('resize', this.onWindowResize, false)
 
-    this.meshGroup.children.forEach((child) => this.meshGroup.remove(child))
-    this.scene.children.forEach((child) => this.scene.remove(child))
+    this.meshGroup.children.forEach(child => this.meshGroup.remove(child))
+    this.scene.children.forEach(child => this.scene.remove(child))
     this.camera.remove(this.light)
 
     if (this.material) {
@@ -163,7 +167,8 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
     let geometry: THREE.BufferGeometry = null
     if (parse) {
       geometry = this.stlLoader.parse(path)
-    } else {
+    }
+    else {
       geometry = await this.stlLoader.loadAsync(path)
     }
     this.material.shininess = 100
@@ -189,7 +194,8 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
         const vector = options[option] as Vector3
         const meshVectorOption = mesh[option] as Vector3
         meshVectorOption.set(vector.x, vector.y, vector.z)
-      } else {
+      }
+      else {
         mesh[option] = options[option]
       }
     })
@@ -240,14 +246,15 @@ export class StlModelViewerComponent implements OnInit, OnDestroy {
       meshCreations = this.stlModels.map((modelPath, index) =>
         this.createMesh(modelPath, this.meshOptions[index])
       )
-    } else {
+    }
+    else {
       meshCreations = this.stlModelFiles.map((modelFile, index) =>
         this.createMesh(modelFile, this.meshOptions[index], true)
       )
     }
     const meshes: THREE.Object3D[] = await Promise.all(meshCreations)
 
-    meshes.map((mesh) => this.meshGroup.add(mesh))
+    meshes.map(mesh => this.meshGroup.add(mesh))
 
     this.scene.add(this.meshGroup)
     this.eleRef.nativeElement.appendChild(this.renderer.domElement)
