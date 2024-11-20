@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ViewChild, ElementRef } from '@angular/core'
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
+import { BrowserModule } from '@angular/platform-browser'
 import { StlModelViewerComponent } from './angular-stl-model-viewer.component'
 import { StlModelViewerModule } from './angular-stl-model-viewer.module'
-import { BrowserModule } from '@angular/platform-browser'
 
 @Component({
+  imports: [StlModelViewerModule],
   template: '<stl-model-viewer [stlModels]="models" (rendered)="isRendered = true"></stl-model-viewer>'
 })
 class TestComponent implements OnInit {
@@ -33,9 +34,8 @@ describe('StlModelViewerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent],
+      declarations: [],
       imports: [
-        StlModelViewerModule,
         BrowserModule
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

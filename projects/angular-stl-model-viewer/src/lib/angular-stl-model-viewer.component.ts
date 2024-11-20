@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -7,15 +9,13 @@ import {
   NgZone,
   OnDestroy,
   OnInit,
-  Output,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef
+  Output
 } from '@angular/core'
 
 import * as THREE from 'three'
 
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js'
 
 import { Vector3 } from 'three'
 
@@ -50,7 +50,6 @@ const isWebGLAvailable = () => {
 }
 
 @Component({
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'stl-model-viewer',
   styles: [
