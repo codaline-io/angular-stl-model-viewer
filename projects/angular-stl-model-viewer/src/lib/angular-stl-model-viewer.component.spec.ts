@@ -5,7 +5,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-import { BrowserModule } from '@angular/platform-browser'
 import { StlModelViewerComponent } from './angular-stl-model-viewer.component'
 import { StlModelViewerModule } from './angular-stl-model-viewer.module'
 
@@ -36,7 +35,7 @@ describe('StlModelViewerComponent', () => {
     TestBed.configureTestingModule({
       declarations: [],
       imports: [
-        BrowserModule
+        StlModelViewerComponent
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents()

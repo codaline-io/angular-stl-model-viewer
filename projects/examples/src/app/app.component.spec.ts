@@ -1,16 +1,11 @@
 import { TestBed, waitForAsync } from '@angular/core/testing'
 import { AppComponent } from './app.component'
 
-import { StlModelViewerModule } from '../../../angular-stl-model-viewer/src/public-api'
-import { BrowserModule } from '@angular/platform-browser'
-
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-      imports: [BrowserModule, StlModelViewerModule]
+
+      imports: [AppComponent]
     }).compileComponents()
   }))
 

@@ -2,22 +2,14 @@
 
 import 'zone.js'
 import 'zone.js/testing'
+
 import { getTestBed } from '@angular/core/testing'
 import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
-} from '@angular/platform-browser-dynamic/testing'
+  BrowserTestingModule,
+  platformBrowserTesting
+} from '@angular/platform-browser/testing'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare const require: {
-  context(path: string, deep?: boolean, filter?: RegExp): {
-    <T>(id: string): T
-    keys(): string[]
-  }
-}
-
-// First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
+  BrowserTestingModule,
+  platformBrowserTesting()
 )
