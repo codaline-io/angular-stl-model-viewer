@@ -4,7 +4,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as THREE from 'three'
 
 @Component({
-  standalone: false,
   selector: 'app-root',
   styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html'
