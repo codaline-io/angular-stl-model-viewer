@@ -21,54 +21,54 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@angular/animations": "^19.0.0",
-    "@angular/common": "^19.0.0",
-    "@angular/compiler": "^19.0.0",
-    "@angular/core": "^19.0.0",
-    "@angular/forms": "^19.0.0",
-    "@angular/platform-browser": "^19.0.0",
-    "@angular/platform-browser-dynamic": "^19.0.0",
-    "@angular/router": "^19.0.0",
+    "@angular/animations": "^20.0.0",
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/platform-browser-dynamic": "^20.0.0",
+    "@angular/router": "^20.0.0",
     "rxjs": "^7.8.1",
     "three": "^0.170.0",
     "tslib": "^2.7.0",
     "zone.js": "^0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.1900.0",
-    "@angular-devkit/build-angular": "^19.0.0",
-    "@angular-devkit/core": "^19.0.0",
-    "@angular-devkit/schematics": "^19.0.0",
-    "@angular/cli": "^19.0.0",
-    "@angular/compiler-cli": "^19.0.0",
-    "@angular/localize": "^19.0.0",
-    "@eslint/js": "^9.10.0",
-    "@eslint/json": "^0.4.1",
-    "@stylistic/eslint-plugin": "^2.11.0",
-    "@types/jasmine": "^5.1.4",
+    "@angular-devkit/architect": "^0.2000.0",
+    "@angular-devkit/build-angular": "^20.0.0",
+    "@angular-devkit/core": "^20.0.0",
+    "@angular-devkit/schematics": "^20.0.0",
+    "@angular/cli": "^20.0.0",
+    "@angular/compiler-cli": "^20.0.0",
+    "@angular/localize": "^20.0.0",
+    "@eslint/js": "^9.28.0",
+    "@eslint/json": "^0.12.0",
+    "@stylistic/eslint-plugin": "^4.4.1",
+    "@types/jasmine": "^5.1.8",
     "@types/jasminewd2": "^2.0.13",
-    "@types/node": "^22.9.1",
-    "angular-eslint": "^18.4.1",
-    "eslint": "^9.15.0",
-    "gh-pages": "^6.2.0",
-    "jasmine-core": "^5.4.0",
+    "@types/node": "^22.15.29",
+    "angular-eslint": "^19.7.1",
+    "eslint": "^9.28.0",
+    "gh-pages": "^6.3.0",
+    "jasmine-core": "^5.7.1",
     "jasmine-spec-reporter": "^7.0.0",
     "karma": "^6.4.4",
     "karma-chrome-launcher": "^3.2.0",
     "karma-coverage": "^2.2.1",
     "karma-jasmine": "^5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
-    "ng-packagr": "^19.0.0",
-    "puppeteer": "^22.15.0",
-    "typescript": "~5.6.3",
-    "typescript-eslint": "^8.15.0"
+    "ng-packagr": "^20.0.0",
+    "puppeteer": "^24.10.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.33.1"
   },
   "overrides": {
-    "@angular-eslint/schematics": {
-      "@angular/cli": "$@angular/cli"
+    "angular-eslint": {
+      "@angular/core": "$@angular/core"
     }
   },
   "volta": {
-    "node": "22.8.0"
+    "node": "22.15.1"
   }
 }
