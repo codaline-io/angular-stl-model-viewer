@@ -1,10 +1,16 @@
 import { Component } from '@angular/core'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
+import { BrowserModule } from '@angular/platform-browser'
+import { StlModelViewerModule } from 'angular-stl-model-viewer'
 import * as THREE from 'three'
 
 @Component({
   selector: 'app-root',
+  imports: [
+    BrowserModule,
+    StlModelViewerModule
+  ],
   styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html'
 })
