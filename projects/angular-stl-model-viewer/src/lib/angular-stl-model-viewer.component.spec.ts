@@ -5,6 +5,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { StlModelViewerComponent } from './angular-stl-model-viewer.component'
 import { StlModelViewerModule } from './angular-stl-model-viewer.module'
 
@@ -31,8 +32,8 @@ describe('StlModelViewerComponent', () => {
   let hostFixture: ComponentFixture<TestComponent>
   let component: StlModelViewerComponent
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [],
       imports: [
         StlModelViewerComponent
@@ -41,14 +42,22 @@ describe('StlModelViewerComponent', () => {
     }).compileComponents()
   })
 
-  beforeEach(() => {
+  beforeEach(async () => {
     hostFixture = TestBed.createComponent(TestComponent)
     component = hostFixture.componentInstance.stlModelViewerCmp as StlModelViewerComponent
 
     // Mocks stlLoader.load to work without existing stl model
-    spyOn(component.stlLoader, 'load').and.callFake((_path: string, cb: any) => {
+    vi.spyOn(component.stlLoader, 'load').mockImplementation((_path: string, cb: any) => {
       cb(new THREE.BufferGeometry())
     })
+    vi.spyOn(component, 'setSizes')
+
+    hostFixture.detectChanges()
+    await hostFixture.whenStable()
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
   })
 
   describe('sets default values', () => {
@@ -57,39 +66,39 @@ describe('StlModelViewerComponent', () => {
       hostFixture.detectChanges()
     })
 
-    it('sets default renderer options', () => {
+    test('sets default renderer options', () => {
       expect(component.renderer.getPixelRatio()).toBe(window.devicePixelRatio)
       expect(component.renderer.shadowMap.enabled).toBe(true)
     })
 
-    it('sets default light position', () => {
+    test('sets default light position', () => {
       expect(component.light.position).toEqual(new THREE.Vector3(1, 1, 2))
     })
 
-    it('sets default camera position', () => {
+    test('sets default camera position', () => {
       expect(component.camera.position.x).toEqual(3)
       expect(component.camera.position.y).toEqual(3)
       expect(Math.floor(component.camera.position.z)).toEqual(3)
     })
 
-    it('sets default scene background', () => {
+    test('sets default scene background', () => {
       expect(component.scene.background).toEqual(new THREE.Color(0xffffff))
     })
   })
 
   describe('#ngOnInit', () => {
-    it('logs error if webgl is not available', () => {
+    test('logs error if webgl is not available', () => {
       component.hasWebGL = false
-      spyOn(console, 'error').and.callThrough()
-      spyOn(component, 'createMesh')
+      vi.spyOn(console, 'error')
+      vi.spyOn(component, 'createMesh')
 
       expect(component.ngOnInit()).toBeUndefined()
       expect(console.error).toHaveBeenCalled()
       expect(component.createMesh).not.toHaveBeenCalled()
     })
 
-    it('adds light to camera', async () => {
-      spyOn(component.camera, 'add')
+    test('adds light to camera', async () => {
+      vi.spyOn(component.camera, 'add')
 
       await component.ngOnInit()
       hostFixture.detectChanges()
@@ -97,8 +106,8 @@ describe('StlModelViewerComponent', () => {
       expect(component.camera.add).toHaveBeenCalledWith(component.light)
     })
 
-    it('adds camera to scene', async () => {
-      spyOn(component.scene, 'add')
+    test('adds camera to scene', async () => {
+      vi.spyOn(component.scene, 'add')
 
       await component.ngOnInit()
       hostFixture.detectChanges()
@@ -106,8 +115,8 @@ describe('StlModelViewerComponent', () => {
       expect(component.scene.add).toHaveBeenCalledWith(component.camera)
     })
 
-    it('sets window event listener', async () => {
-      spyOn(window, 'addEventListener')
+    test('sets window event listener', async () => {
+      vi.spyOn(window, 'addEventListener')
 
       await component.ngOnInit()
       hostFixture.detectChanges()
@@ -116,16 +125,15 @@ describe('StlModelViewerComponent', () => {
       expect(window.addEventListener).toHaveBeenCalledWith('resize', component.onWindowResize, false)
     })
 
-    it('sets initial sizes and camera aspec ratio', async () => {
-      spyOn(component, 'setSizes')
-
+    test('sets initial sizes and camera aspec ratio', async () => {
       await component.ngOnInit()
+      await hostFixture.whenStable()
       hostFixture.detectChanges()
 
       expect(component.setSizes).toHaveBeenCalled()
     })
 
-    it('adds default controls and sets control options', async () => {
+    test('adds default controls and sets control options', async () => {
       await component.ngOnInit()
       hostFixture.detectChanges()
 
@@ -140,14 +148,14 @@ describe('StlModelViewerComponent', () => {
       }
     })
 
-    it('calls createMesh', async () => {
+    test('calls createMesh', async () => {
       const fakeMesh = new THREE.Mesh()
-      spyOn(component, 'createMesh').and.callFake(() => Promise.resolve(fakeMesh))
-      spyOn(component.scene, 'add').and.callThrough()
-      spyOn(component, 'render').and.callThrough()
+      vi.spyOn(component, 'createMesh').mockResolvedValue(fakeMesh)
+      vi.spyOn(component.scene, 'add')
+      vi.spyOn(component, 'render')
 
       await component.ngOnInit()
-      hostFixture.detectChanges()
+      await hostFixture.whenStable()
 
       expect(component.createMesh).toHaveBeenCalledWith(component.stlModels[0], undefined)
       const el = hostFixture.componentInstance.stlModelViewerCmpElement as HTMLCanvasElement
@@ -159,8 +167,8 @@ describe('StlModelViewerComponent', () => {
   })
 
   describe('#ngOnDestroy', () => {
-    it('remove window event listener', () => {
-      spyOn(window, 'removeEventListener')
+    test('remove window event listener', () => {
+      vi.spyOn(window, 'removeEventListener')
 
       component.ngOnDestroy()
       hostFixture.detectChanges()
@@ -169,11 +177,11 @@ describe('StlModelViewerComponent', () => {
       expect(window.removeEventListener).toHaveBeenCalledWith('resize', component.onWindowResize, false)
     })
 
-    it('cleans up controls', () => {
+    test('cleans up controls', () => {
       component.controls = new OrbitControls(component.camera, component.renderer.domElement)
 
-      spyOn(component.controls, 'dispose').and.callThrough()
-      spyOn(component.controls, 'removeEventListener').and.callThrough()
+      vi.spyOn(component.controls, 'dispose')
+      vi.spyOn(component.controls, 'removeEventListener')
 
       component.ngOnDestroy()
       hostFixture.detectChanges()
@@ -182,8 +190,8 @@ describe('StlModelViewerComponent', () => {
       expect(component.controls.removeEventListener).toHaveBeenCalled()
     })
 
-    it('removes scene children', () => {
-      spyOn(component.scene, 'remove').and.callThrough()
+    test('removes scene children', () => {
+      vi.spyOn(component.scene, 'remove')
       const object3d = new THREE.Object3D()
       component.scene.add(object3d)
 
@@ -196,7 +204,7 @@ describe('StlModelViewerComponent', () => {
   })
 
   describe('#createMesh', () => {
-    it('sets correct options', async () => {
+    test('sets correct options', async () => {
       component.meshOptions = [{
         castShadow: false,
         position: new THREE.Vector3(1, 1, 1),
@@ -215,7 +223,7 @@ describe('StlModelViewerComponent', () => {
       expect(mesh.castShadow).toBe(false)
     })
 
-    it('sets default options', async () => {
+    test('sets default options', async () => {
       const mesh = await component.createMesh('test.stl')
       hostFixture.detectChanges()
 
@@ -227,8 +235,8 @@ describe('StlModelViewerComponent', () => {
   })
 
   describe('#render', () => {
-    it('rerenders scene with camera', () => {
-      spyOn(component.renderer, 'render')
+    test('rerenders scene with camera', () => {
+      vi.spyOn(component.renderer, 'render')
 
       component.render()
       hostFixture.detectChanges()
@@ -238,9 +246,8 @@ describe('StlModelViewerComponent', () => {
   })
 
   describe('#onWindowResize', () => {
-    it('calls set sizes and render', () => {
-      spyOn(component, 'setSizes').and.callThrough()
-      spyOn(component, 'render')
+    test('calls set sizes and render', () => {
+      vi.spyOn(component, 'render')
 
       component.onWindowResize()
       hostFixture.detectChanges()

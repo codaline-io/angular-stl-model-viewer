@@ -45,3 +45,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+projects/angular-stl-model-viewer/src/lib/__screenshots__
